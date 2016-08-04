@@ -7,7 +7,7 @@ var checkAuth = function()
 		if(emailLog.length > 0)
 		{
 			console.log("Passed");
-			window.location.href = "/chanList";
+			window.location.href = "/TensionWebsite/Tension/#/chanList";
 		}
 };
 
