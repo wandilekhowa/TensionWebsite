@@ -22,19 +22,19 @@ app.config(function($routeProvider) {
 		controller: 'MainCtrl',
 		templateUrl: 'template/home.html',
 	})
-	$routeProvider.when('/#/channel/:channelId', {
+	$routeProvider.when('/channel/:channelId', {
 		controller: 'ChannelsCtrl',
 		templateUrl: 'template/channel.html',
 	})
-	$routeProvider.when('/#/signup/', {
+	$routeProvider.when('/signup/', {
 		controller: 'SignUpCtrl',
 		templateUrl: 'template/signup.html',
 	})
-	$routeProvider.when('/#/login/', {
+	$routeProvider.when('/login/', {
 		controller: 'LoginCtrl',
 		templateUrl: 'template/login.html',
 	})
-	$routeProvider.when('/#/chanList', {
+	$routeProvider.when('/chanList', {
 		controller: 'ChanListCtrl',
 		templateUrl: 'template/chanList.html',
 	})
