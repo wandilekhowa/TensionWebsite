@@ -7,7 +7,7 @@ var checkAuth = function()
 		if(emailLog.length > 0)
 		{
 			console.log("Passed");
-			window.location.href = "/#/chanList";
+			window.location.href = "/TensionWebsite/Tension/#/chanList";
 		}
 };
 
@@ -18,23 +18,23 @@ var exit = function()
 };
 
 app.config(function($routeProvider) {
-	$routeProvider.when('/', {
+	$routeProvider.when('/TensionWebsite/Tension/', {
 		controller: 'MainCtrl',
 		templateUrl: 'template/home.html',
 	})
-	$routeProvider.when('/channel/:channelId', {
+	$routeProvider.when('/TensionWebsite/Tension/channel/:channelId', {
 		controller: 'ChannelsCtrl',
 		templateUrl: 'template/channel.html',
 	})
-	$routeProvider.when('/signup/', {
+	$routeProvider.when('/TensionWebsite/Tension/signup/', {
 		controller: 'SignUpCtrl',
 		templateUrl: 'template/signup.html',
 	})
-	$routeProvider.when('/login/', {
+	$routeProvider.when('/TensionWebsite/Tension/login/', {
 		controller: 'LoginCtrl',
 		templateUrl: 'template/login.html',
 	})
-	$routeProvider.when('/chanList/', {
+	$routeProvider.when('/TensionWebsite/Tension/chanList/', {
 		controller: 'ChanListCtrl',
 		templateUrl: 'template/chanList.html',
 	})
@@ -106,7 +106,7 @@ app.controller('SignUpCtrl', function($http,$scope,$firebaseArray, $firebaseAuth
             ref.child(firebaseUser.uid).push({name: $scope.name,email: $scope.email,sender: firebaseUser.uid,created_time: dateConverter(Date.now())});
             $scope.name = "";
     		$scope.password = "";
-    		window.location.href = "/#/login";
+    		window.location.href = "/TensionWebsite/Tension/#/login";
           }).catch(function(error) {
             alert(error);
     	  });
@@ -124,7 +124,7 @@ app.controller('LoginCtrl', function($http,$scope,$firebaseArray, $firebaseAuth)
         .then(function(firebaseUser) {
         	emailLog = $scope.email;
     		$scope.password = "";
-    		window.location.href = "/#/chanList";
+    		window.location.href = "/TensionWebsite/Tension/#/chanList";
             }).catch(function(error) {
             	alert(error);
             });
