@@ -1,0 +1,236 @@
+h1{
+	color: #FF003A;
+	font-family: ‘Lucida Console’, Monaco, monospace;
+	font-weight: bold;
+}
+
+.first_text{
+	margin-top: 100px;
+}
+
+body{
+	background-image: url("tiger.jpg");
+	background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.red_bar
+{
+/* 	border:2px solid black;
+ */	position:absolute;
+	left:0;
+	right:0;
+	height:70px;
+	background-color:black;
+}
+
+img{
+	padding-left: 10px;
+}
+
+.first
+{
+	margin-top: 75px;
+	margin-left: 10px;
+}
+
+.chnl
+{
+	margin-top: 75px;
+	margin-left: 10px;
+}
+
+.receipt{
+	width: 50%;
+}
+
+.chnnl{
+	width: 80%;
+}
+
+.text{
+	width: 80%;
+}
+
+.submit{
+	margin-top: 8px;
+}
+
+.chatArea{
+	margin-top: 100px;
+}
+
+.chatHistory{
+	margin-left: 170px;
+}
+
+ul li{
+	list-style: none;
+	padding: 5px;
+}
+
+h3, h6, h2, h4{
+	color: #FF003A;
+	font-weight: bold;
+}
+
+label{
+	color: #FF003A;
+	font-weight: bold;
+}
+
+.chatHist{
+	margin-left: 180px;
+	margin-bottom: 40px;
+}
+
+.channelHead{
+	margin-left: 25px;
+}
+
+li a, a{
+	text-decoration: none !important;
+}
+
+.chn{
+	padding: 0px;
+}
+
+.chatHead{
+	margin-left: 220px;
+}
+
+.allChannels{
+	padding-left: 26.6px;
+}
+
+@media(max-width: 993px)
+{
+	.chatHead{
+		margin-left: 10px;
+	}
+
+	.allProps{
+		padding-left: 3px;
+	}
+
+	.channelHead{
+		margin-left: 10px;
+	}
+
+	.allChannels
+	{
+		padding-left:10px: 
+	}
+}
+
+a h4{
+	transition: all .3s;
+	padding: 5px;
+	list-style: none;
+	width: 10%;
+}
+
+a h4:hover{
+	transform: scale(1.3,1.3);
+}
+
+.signup{
+	margin-left: 90px;
+	margin-bottom: 20px;
+}
+
+.signUp, .login{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	margin-left: 420px;
+	margin-top: 0px;
+}
+
+.email, .pass, .name{
+	padding: 5px;
+}
+
+.space{
+	margin-right: 30px;
+}
+
+.sign-btn{
+	margin-left: 101px;
+	margin-top: 15px;
+	background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 6px;
+}
+
+.logIn{
+	margin-left: 100px;
+}
+
+p a{
+	color:#FF003A; 
+	text-decoration: none !important;
+	margin-left: 65px;
+}
+
+.img{
+	display: block;
+	margin-left: 30px;
+	background-image: url("logo.png");
+	background-repeat: no-repeat;
+    background-position: 0% 0%;
+    height: 70px;
+    width: 273px;
+}
+
+.signOut{
+	display: block;
+	color: white;
+	display: inline-block;
+	margin-left: 900px;
+	margin-top: 22px;
+	font-size: 24px;
+	background-image: url("logout.gif");
+	background-repeat: no-repeat;
+    background-position: 0% 0%;
+    height: 35px;
+    width: 100px;
+}
+
+.logOut{
+	display: block;
+	color: white;
+	display: inline-block;
+	margin-left: 80px;
+	margin-top: 10.5px;
+	font-size: 24px;
+	background-image: url("login.gif");
+	background-repeat: no-repeat;
+    background-position: 0% 0%;
+    height: 35px;
+    width: 100px;
+}
+
+.logout{
+	text-decoration: none !important;
+}
+
+.welcome{
+	font-size: 60px;
+	margin-left:24%;
+	margin-top: 20%; 
+}
+
+.log{
+	margin-left: 75px;
+}

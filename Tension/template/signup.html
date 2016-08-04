@@ -1,0 +1,25 @@
+<div class="container signUp">
+  <h2 class="signup">Sign up  </h2>
+  <form ng-submit="signUp()">
+    <div class="row">
+      <div class="name">
+        <label class="space">Name:</label>
+        <input ng-model="name">
+      </div>
+    </div>
+    <div class="row">
+      <div class="email">
+        <label class="space">Email:</label>
+        <input ng-model="email">
+      </div>
+    </div>
+    <div class="row">
+      <div class="pass">
+        <label>Password: </label>
+        <input type="password" ng-model="password">
+      </div>
+    </div>
+    <button class="sign-btn">Sign up</button>
+    <p><a href="/#/login">already signed up? Login</a></p>
+    </form>
+</div>

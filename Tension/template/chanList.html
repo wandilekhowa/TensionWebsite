@@ -1,0 +1,24 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group chnl">
+  				<label for="data">Add new channel:</label>
+  				<input ng-model="channelName" type="text" class="form-control chnnl" id="pwd">
+  				<label for="data">Add channel description:</label>
+  				<textarea ng-model="description" class="form-control text" rows="5" id="comment"></textarea>
+  				<button ng-click="addChannel()" type="button" class="btn btn-success btn-lg submit">Add channel</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+  			<h2 class="channelHead">Channels</h2>
+  				<ul class="allChannels">
+					<li class="chn" ng-repeat="channel in channels track by $index">
+						<a href="#/channel/{{channel.description}}"><h4>{{channel.name}}</h4></a>
+					<li>
+				</ul>
+		</div>
+	</div>
+</div>

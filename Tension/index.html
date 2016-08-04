@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <script src="https://www.gstatic.com/firebasejs/3.2.0/firebase.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="template/styles.css">
+  </head>
+  <body ng-app="TensionMock" class="color">
+    <div class="container whole">
+	
+		<div class="red_bar row">
+				<div onclick="checkAuth()" class="col-md-2 img"></div>
+				<a href="/" onclick="exit()" class="logout" ng-click="!showLogout" ng-click="authObj.$signOut()"><div ng-hide="showLogout" class="signOut" class="col-md-2"></div></a>
+				<a href="/#/login" class="login" ng-click="authObj.$signOut()"><div class="logOut" class="col-md-2"></div></a>
+		</div>
+		
+		
+		<div class="container-fluid" ng-view> </div>
+
+		<script src="template/angular.js"></script><!--you might need CDN here-->
+		<script src="https://www.gstatic.com/firebasejs/3.0.3/firebase.js"></script>
+		<script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
+		<script src="template/angular-route.js"></script><!--you might need CDN here-->
+		<script src="template/script.js"></script>
+		<script>
+  		// Initialize Firebase
+  		var config = {
+    	apiKey: "AIzaSyB-zeqrwfoHoZ-8VMh1P4Bxdzj3hDdUVUY",
+    	authDomain: "tensionmock.firebaseapp.com",
+    	databaseURL: "https://tensionmock.firebaseio.com",
+    	storageBucket: "",
+  		};
+  		firebase.initializeApp(config);
+	</script>
+	</div>
+  </body>
+</html>

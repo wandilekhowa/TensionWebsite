@@ -1,0 +1,19 @@
+<div class="container login">
+  <h2 class="logIn">Login</h2>
+  <form ng-submit="login()">
+    <div class="row">
+      <div class="email">
+        <label class="space">Email:</label>
+        <input ng-model="email">
+      </div>
+    </div>
+    <div class="row">
+      <div class="pass">
+        <label>Password: </label>
+        <input type="password" ng-model="password">
+      </div>
+    </div>
+    <button ng-click="!showLogout" class="sign-btn">Login</button>
+    <p><a class="log" href="/#/signup">Not a user? Sign up</a></p>
+  </form>
+</div>

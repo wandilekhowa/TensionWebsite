@@ -1,0 +1,24 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group first">
+  				<label for="comment">Enter message:</label>
+  				<textarea ng-model="newMessageText" class="form-control text" rows="5" id="comment"></textarea>
+  				<label for="pwd">Receipient:</label>
+  				<input ng-model="name" type="text" class="form-control receipt" id="pwd">
+  				<button ng-click="addMessage()" type="button" class="btn btn-success btn-lg submit">Submit</button>
+			</div>
+		</div>
+
+		<div class="col-md-6 chatArea">
+  			<h2 class="chatHead">{{channelId}} chat history</h2>
+  				<ul class="allProps">
+					<li ng-repeat="message in messages track by $index">
+						<h3>@{{message.name}}:</h3>
+						<h6>{{message.created_time}}:</h6>
+						<h4>{{message.text}}</h4>
+					<li>
+				</ul>
+		</div>
+	</div>
+</div>
