@@ -7,7 +7,7 @@ var checkAuth = function()
 		if(emailLog.length > 0)
 		{
 			console.log("Passed");
-			window.location.href = "/TensionWebsite/Tension/#/chanList";
+			window.location.href = "/#/chanList";
 		}
 };
 
@@ -18,23 +18,23 @@ var exit = function()
 };
 
 app.config(function($routeProvider) {
-	$routeProvider.when('/TensionWebsite/Tension/#/', {
+	$routeProvider.when('/', {
 		controller: 'MainCtrl',
 		templateUrl: 'template/home.html',
 	})
-	$routeProvider.when('/TensionWebsite/Tension/#/channel/:channelId', {
+	$routeProvider.when('/#/channel/:channelId', {
 		controller: 'ChannelsCtrl',
 		templateUrl: 'template/channel.html',
 	})
-	$routeProvider.when('/TensionWebsite/Tension/#/signup/', {
+	$routeProvider.when('/#/signup/', {
 		controller: 'SignUpCtrl',
 		templateUrl: 'template/signup.html',
 	})
-	$routeProvider.when('/TensionWebsite/Tension/#/login/', {
+	$routeProvider.when('/#/login/', {
 		controller: 'LoginCtrl',
 		templateUrl: 'template/login.html',
 	})
-	$routeProvider.when('/TensionWebsite/Tension/#/chanList', {
+	$routeProvider.when('/#/chanList', {
 		controller: 'ChanListCtrl',
 		templateUrl: 'template/chanList.html',
 	})
@@ -106,7 +106,7 @@ app.controller('SignUpCtrl', function($http,$scope,$firebaseArray, $firebaseAuth
             ref.child(firebaseUser.uid).push({name: $scope.name,email: $scope.email,sender: firebaseUser.uid,created_time: dateConverter(Date.now())});
             $scope.name = "";
     		$scope.password = "";
-    		window.location.href = "/TensionWebsite/Tension/#/login";
+    		window.location.href = "/#/login";
           }).catch(function(error) {
             alert(error);
     	  });
@@ -124,7 +124,7 @@ app.controller('LoginCtrl', function($http,$scope,$firebaseArray, $firebaseAuth)
         .then(function(firebaseUser) {
         	emailLog = $scope.email;
     		$scope.password = "";
-    		window.location.href = "/TensionWebsite/Tension/#/chanList";
+    		window.location.href = "/#/chanList";
             }).catch(function(error) {
             	alert(error);
             });
