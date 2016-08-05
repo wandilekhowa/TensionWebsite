@@ -23,7 +23,7 @@ app.config(function($routeProvider)
         			return $firebaseAuth().$waitForSignIn();
       			}
     		}
-	}).when('/TensionWebsite/Tension/channel/:channelId', {
+	})$routeProvider.when('/TensionWebsite/Tension/channel/:channelId', {
 		controller: 'ChannelsCtrl',
 		templateUrl: 'template/channel.html',
 		resolve: 
@@ -33,7 +33,7 @@ app.config(function($routeProvider)
         			return $firebaseAuth().$waitForSignIn();
       			}
     		}
-	}).when('/TensionWebsite/Tension/signup/', {
+	})$routeProvider.when('/TensionWebsite/Tension/signup/', {
 		controller: 'SignUpCtrl',
 		templateUrl: 'template/signup.html',
 		resolve: 
@@ -43,7 +43,7 @@ app.config(function($routeProvider)
         			return $firebaseAuth().$waitForSignIn();
       			}
     		}
-	}).when('/TensionWebsite/Tension/login/', {
+	})$routeProvider.when('/TensionWebsite/Tension/login/', {
 		controller: 'LoginCtrl',
 		templateUrl: 'template/login.html',
 		resolve: 
@@ -53,7 +53,7 @@ app.config(function($routeProvider)
         			return $firebaseAuth().$waitForSignIn();
       			}
     		}
-	}).when('/TensionWebsite/Tension/chanList/', {
+	})$routeProvider.when('/TensionWebsite/Tension/chanList/', {
 		controller: 'ChanListCtrl',
 		templateUrl: 'template/chanList.html',
 		resolve: 
