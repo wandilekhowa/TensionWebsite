@@ -16,13 +16,6 @@ app.config(function($routeProvider)
 	$routeProvider.when('/TensionWebsite/Tension/', {
 		controller: 'MainCtrl',
 		templateUrl: 'template/home.html',
-		resolve: 
-		{ 
-      			"currentAuth":  function($firebaseAuth) 
-	  		{
-        			return $firebaseAuth().$waitForSignIn();
-      			}
-    		}
 	})$routeProvider.when('/TensionWebsite/Tension/channel/:channelId', {
 		controller: 'ChannelsCtrl',
 		templateUrl: 'template/channel.html',
