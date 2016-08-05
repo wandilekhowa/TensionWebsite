@@ -1,43 +1,69 @@
 var app = angular.module("TensionMock", ["firebase", "ngRoute" ]);
-var emailLog = "";
-var checkAuth = function()
-{
-	console.log("checking authentication");
-	console.log("printing email: "+emailLog);
-		if(emailLog.length > 0)
-		{
-			console.log("Passed");
-			window.location.href = "/TensionWebsite/Tension/#/chanList";
-		}
-};
 
-var exit = function()
+app.run(["$rootScope", "$location", function($rootScope, $location) 
 {
-	console.log("I am clearing");
-	emailLog = "";
-};
+  $rootScope.$on("$routeChangeError", function(event, next, previous, error) 
+  {
+    if (error === "AUTH_REQUIRED") 
+	{
+      	   window.location.href = "/TensionWebsite/Tension/#/login";
+    }
+  });
+}]);
 
-app.config(function($routeProvider) {
+app.config(function($routeProvider) 
+{
 	$routeProvider.when('/TensionWebsite/Tension/', {
 		controller: 'MainCtrl',
 		templateUrl: 'template/home.html',
-	})
-	$routeProvider.when('/TensionWebsite/Tension/channel/:channelId', {
+		resolve: 
+		{ 
+      			"currentAuth":  function($firebaseAuth) 
+	  		{
+        			return $firebaseAuth().$waitForSignIn();
+      			}
+    		}
+	}).when('/TensionWebsite/Tension/channel/:channelId', {
 		controller: 'ChannelsCtrl',
 		templateUrl: 'template/channel.html',
-	})
-	$routeProvider.when('/TensionWebsite/Tension/signup/', {
+		resolve: 
+		{ 
+      			"currentAuth":  function($firebaseAuth) 
+	  		{
+        			return $firebaseAuth().$waitForSignIn();
+      			}
+    		}
+	}).when('/TensionWebsite/Tension/signup/', {
 		controller: 'SignUpCtrl',
 		templateUrl: 'template/signup.html',
-	})
-	$routeProvider.when('/TensionWebsite/Tension/login/', {
+		resolve: 
+		{ 
+      			"currentAuth":  function($firebaseAuth) 
+	  		{
+        			return $firebaseAuth().$waitForSignIn();
+      			}
+    		}
+	}).when('/TensionWebsite/Tension/login/', {
 		controller: 'LoginCtrl',
 		templateUrl: 'template/login.html',
-	})
-	$routeProvider.when('/TensionWebsite/Tension/chanList/', {
+		resolve: 
+		{ 
+      			"currentAuth":  function($firebaseAuth) 
+	  		{
+        			return $firebaseAuth().$waitForSignIn();
+      			}
+    		}
+	}).when('/TensionWebsite/Tension/chanList/', {
 		controller: 'ChanListCtrl',
 		templateUrl: 'template/chanList.html',
-	})
+		resolve: 
+		{ 
+      			"currentAuth":  function($firebaseAuth) 
+	  		{
+        			return $firebaseAuth().$waitForSignIn();
+      			}
+    		}
+	});
 });
 
 var dateConverter = function timeConverter(UNIX_timestamp)
@@ -61,6 +87,7 @@ var dateConverter = function timeConverter(UNIX_timestamp)
 
 app.controller("ChanListCtrl", function($scope, $firebaseArray) 
 {
+    $scope.showLogout = true;
     var ref = firebase.database().ref().child("channels");
     $scope.channels = $firebaseArray(ref);
     $scope.addChannel = function()
@@ -77,9 +104,10 @@ app.controller("ChanListCtrl", function($scope, $firebaseArray)
 
 app.controller("ChannelsCtrl", function($scope, $firebaseArray, $routeParams) 
 {
-	$scope.channelId = $routeParams.channelId;
-	console.log($scope.channelId);
-	var ref = firebase.database().ref().child("messages");
+    $scope.showLogout = true;
+    $scope.channelId = $routeParams.channelId;
+    console.log($scope.channelId);
+    var ref = firebase.database().ref().child("messages");
     $scope.messages = $firebaseArray(ref.child($routeParams.channelId));
     $scope.addMessage = function()
     {
@@ -92,7 +120,7 @@ app.controller("ChannelsCtrl", function($scope, $firebaseArray, $routeParams)
 
 app.controller('SignUpCtrl', function($http,$scope,$firebaseArray, $firebaseAuth)
 {
-	$scope.showLogout = false;
+    $scope.showLogout = false;
     var ref = firebase.database().ref().child('User');
     $scope.authObj = $firebaseAuth();
     $scope.signUp = function () 
@@ -115,7 +143,7 @@ app.controller('SignUpCtrl', function($http,$scope,$firebaseArray, $firebaseAuth
 
 app.controller('LoginCtrl', function($http,$scope,$firebaseArray, $firebaseAuth)
 {
-	$scope.showLogout = false;
+    $scope.showLogout = false;
     var ref = firebase.database().ref().child('User');
     $scope.authObj = $firebaseAuth();
     $scope.login = function () 
@@ -136,4 +164,14 @@ app.controller('MainCtrl', function($http,$scope,$firebaseArray, $firebaseAuth)
 {
       $scope.showLogout = false;
 
+});
+
+app.controller("AppController", function($scope, $firebaseArray, $firebaseAuth,$routeParams,$location,$window,$location) 
+{
+	$scope.authObj = $firebaseAuth();
+	$scope.sign_out=function()
+	{
+		$scope.authObj.$signOut()
+		window.location.href = "/TensionWebsite/Tension/#/";
+	}
 });
